@@ -426,6 +426,52 @@ padding-left: 40px;
 }
 
   
-   
-     
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
+.modal-block {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  padding: 15px;
+  margin: 100px auto;
+}
+
+.form-field {
+  margin: 15px 0;
+}
+.form-field input {
+  width: 100%;
+  padding: 5px;
+}
+.btn-close {
+  text-align: right;
+  cursor: pointer;
+}  
+     
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+/* .slick-arrow::before {
+  color: red;
+}
+.slick-dots li.slick-active button:before {
+  color: yellow;
+}
+
+.slider > div {
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  padding: 150px 0;
+} */

@@ -14,31 +14,7 @@ addToCardBtns.forEach((item) => {
     productCountEl.textContent = +productCountEl.textContent + 1;
   });
 });
-// let likeClickEl = document.getElementById("like-click1");
-// console.log(likeClickEl);
-// likeClickEl.style.background = "blue";
-// console.log(likeClickEl.getAttribute("url"));
-// let backgroundImageLike = document.querySelectorAll("backgroundImage");
-// console.log(backgroundImageLike);
-// function changeBackgroundImageUrl(){
-// }
-// let classLike = document.querySelectorAll(".like");
-// console.log(classLike);
-// console.log(classLike.getAttribute("url"));
-// function handleClickLike() {
-//   console.log("click");
-// }
-// likeClickEl.addEventListener("click", handleClickLike);
-// likeClickEl.addEventListener("click", function () {
-//   console.log("click");
-// });
-// let likeClickEl = document.getElementById("like-click1");
-// console.log(likeClickEl);
-// let moreDetails = document.querySelectorAll(".btn-more-details");
-// console.log(moreDetails);
-// moreDetails.addEventListener("click", function () {
-//   console.log("click");
-// });
+
 let classLike = document.querySelectorAll(".like");
 console.log(classLike);
 classLike.forEach((item) => {
@@ -59,3 +35,31 @@ classLike.forEach((item) => {
   });
 });
 console.log("bla-bla");
+//натискаємо на кнопку та з'являється модальне вікно
+let moreDetailsBtns = document.querySelectorAll(".btn-more-details");
+let closeBtn = document.querySelector(".btn-close");
+let modal = document.querySelector(".modal");
+moreDetailsBtns.forEach((item) => {
+  item.addEventListener("click", function () {
+    modal.classList.add("show");
+    modal.classList.remove("hide");
+  });
+});
+//натискаємо на хрестик та зникає модальне вікно
+closeBtn.addEventListener("click", closeModal);
+function closeModal() {
+  modal.classList.remove("show");
+  modal.classList.add("hide");
+}
+//щоб модальне вікно зачинялося при натисканні поряд з хрестиком
+modal.addEventListener("click", function (e) {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+//slick
+$(".slider").slick();
+// // slick
+// $(".slider").slick({
+//     dots: true,
+// });
