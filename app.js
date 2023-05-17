@@ -57,9 +57,53 @@ modal.addEventListener("click", function (e) {
     closeModal();
   }
 });
-//slick
-$(".slider").slick();
-// // slick
-// $(".slider").slick({
-//     dots: true,
-// });
+
+$(".slider").slick({
+  dots: true,
+});
+//counter
+let incrementBtns = document.querySelectorAll(".increment-button");
+let decrementBtns = document.querySelectorAll(".decrement-button");
+let inputFields = document.querySelectorAll(".counter-input");
+
+function Counter(incrementBtn, decrementBtn, inputField) {
+  this.domRefs = {
+    incrementBtn,
+    decrementBtn,
+    inputField,
+  };
+  this.toggleButtonState = function () {
+    let count = +this.domRefs.inputField.value;
+    this.domRefs.decrementBtn.disabled = count <= 1;
+    this.domRefs.incrementBtn.disabled = count >= 10;
+  };
+  this.toggleButtonState();
+  this.increment = function () {
+    this.domRefs.inputField.value = +this.domRefs.inputField.value + 1;
+    this.toggleButtonState();
+  };
+  this.decrement = function () {
+    this.domRefs.inputField.value = +this.domRefs.inputField.value - 1;
+    this.toggleButtonState();
+  };
+  this.domRefs.incrementBtn.addEventListener(
+    "click",
+    this.increment.bind(this)
+  );
+  this.domRefs.decrementBtn.addEventListener(
+    "click",
+    this.decrement.bind(this)
+  );
+}
+// console.log(this);
+// let counter = new Counter(
+//   document.querySelectorAll(".increment-button")[0],
+//   document.querySelectorAll(".decrement-button")[0],
+//   document.querySelectorAll(".counter-input")[0]
+// );
+// console.log(counter);
+let counters = [];
+inputFields.forEach(
+  (item, i) =>
+    (counters[i] = new Counter(incrementBtns[i], decrementBtns[i], item))
+);

@@ -1,6 +1,19 @@
 *{
     box-sizing: border-box;
 }
+@media(max-width:1200px){
+  /* mobile version */
+  .email,.number,.adress{ 
+  display: none;    
+}
+}
+@media(max-width:1400px){
+ /* laptop version */
+ body,footer{     
+ width:1400px;
+ 
+}
+}
 body{ 
 font-family: 'Roboto', sans-serif;
 background-image: url("./images/patt.png");
@@ -277,12 +290,11 @@ padding-left: 40px;
   background-image: url(images/heart.png);
   background-repeat: no-repeat;
   position: absolute;
-   left:237px;
-   top: 48;   
-   /* padding: 10px; */
-   bottom: 107px;
+   left:237px;         
+   bottom: 98px;
    width: 20px;
    height: 20px;
+   z-index: 10;
 }
 .like:hover,
 .liked{
@@ -425,7 +437,7 @@ padding-left: 40px;
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-  
+ /* //Модальне вікно  */
 .modal {
   position: fixed;
   top: 0;
@@ -435,7 +447,6 @@ padding-left: 40px;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
 .modal-block {
   width: 300px;
   height: 200px;
@@ -443,7 +454,6 @@ padding-left: 40px;
   padding: 15px;
   margin: 100px auto;
 }
-
 .form-field {
   margin: 15px 0;
 }
@@ -454,24 +464,77 @@ padding-left: 40px;
 .btn-close {
   text-align: right;
   cursor: pointer;
-}  
-     
+}     
 .show {
   display: block;
 }
 .hide {
   display: none;
 }
-/* .slick-arrow::before {
-  color: red;
+/* //slider */
+.slick-prev{
+  content: url(images/left-arrow.svg);
+  }
+  .slick-next{
+  content: url(images/right-arrow.svg);  
+  }   
+ .slick-prev:before {
+  content: url(images/left-arrow.svg);
 }
-.slick-dots li.slick-active button:before {
-  color: yellow;
-}
-
+.slick-next:before {
+  content: url(images/right-arrow.svg);
+} 
 .slider > div {
-  font-size: 50px;
+  font-size: 50px;  
   color: white;
   text-align: center;
   padding: 150px 0;
-} */
+}
+.slick-dots li button:before {
+  content: none;
+} 
+.slick-dots li button {
+  border: 1px solid white;
+  height: 0px;
+  width: 0px;
+  background-color: transparent;
+  position: relative;
+}
+.slick-dots li button:hover{
+  background-color: white;
+} 
+.slick-dots li.slick-active button:before {
+ content: url(images/white-square-dots.svg);
+ width: 10px;
+ height: 10px;
+position: absolute;
+top: -3px;
+}
+.product-quantity {
+  text-align: center;
+  margin-bottom: 10px;
+}
+/* counter */
+.product-quantity {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.decrement-button{
+  position: absolute;
+  left: 1px;
+  top: 448px;
+}
+.increment-button{
+  position: absolute;
+  left: 240px;
+  top: 448px;
+}
+.counter-input{
+  position: relative;
+    top: 6px;
+    border: 1px solid white;
+    margin-left: 32px;
+    margin-right: 69px;
+    height: 25px;
+    background-color: white;
+}
